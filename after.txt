@@ -1,0 +1,14 @@
+Target: http://127.0.0.1:5002
+
+[PASS] C1 Configuration: Debug/info endpoint not exposed -- GET /debug-info -> HTTP 404
+[PASS] C2 Configuration: Security headers present -- all expected headers set
+[PASS] C3 Configuration: Session cookie has HttpOnly + SameSite -- flags: HttpOnly; Path=/; SameSite=Lax
+[PASS] A1 Authentication: Weak default credentials rejected -- none of the synthetic weak pairs accepted
+[PASS] A2 Authentication: Brute-force throttling / lockout -- 8 bad attempts -> [401, 429]
+[PASS] V1 Validation: Reflected input is output-encoded -- marker encoded
+[PASS] V2 Validation: Numeric id parameter resists SQL injection -- id='1 OR 1=1' -> HTTP 400, 0 student rows returned
+[PASS] V3 Validation: Errors do not leak internals -- id=1' -> HTTP 400
+[PASS] D1 Dependencies: Requirements are pinned -- 1 pinned
+[PASS] L1 Logging: Failed logins are logged -- auth_failure events found
+
+Summary: 10/10 checks passed

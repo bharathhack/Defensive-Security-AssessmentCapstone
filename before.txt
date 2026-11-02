@@ -1,0 +1,14 @@
+Target: http://127.0.0.1:5001
+
+[FAIL] C1 Configuration: Debug/info endpoint not exposed -- GET /debug-info -> HTTP 200 (leaks config)
+[FAIL] C2 Configuration: Security headers present -- missing: Content-Security-Policy, X-Content-Type-Options, X-Frame-Options
+[FAIL] C3 Configuration: Session cookie has HttpOnly + SameSite -- flags: HttpOnly; Path=/
+[FAIL] A1 Authentication: Weak default credentials rejected -- accepted: admin, student1
+[FAIL] A2 Authentication: Brute-force throttling / lockout -- 8 bad attempts -> [401]
+[FAIL] V1 Validation: Reflected input is output-encoded -- marker returned raw
+[FAIL] V2 Validation: Numeric id parameter resists SQL injection -- id='1 OR 1=1' -> HTTP 200, 3 student rows returned
+[FAIL] V3 Validation: Errors do not leak internals -- id=1' -> HTTP 500, stack trace / DB error leaked
+[FAIL] D1 Dependencies: Requirements are pinned -- unpinned: flask
+[FAIL] L1 Logging: Failed logins are logged -- no auth log / no failure events
+
+Summary: 0/10 checks passed
